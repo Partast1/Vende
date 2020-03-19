@@ -44,48 +44,49 @@ var GenerateImages = function () {
     imgArray[2] = new Image();
     imgArray[2].src = 'Imgs/Panda.jpg';
 };
-var GenerateMap2 = function () {
-    var canvas = document.getElementById("card2");
-    var ctx = canvas.getContext("2d");
-    var img = new Image();
-    img.src = "Imgs/Cow.jpg";
-
-    img.onload = () => {
-        ctx.drawImage(img,0,0, 200, 200)
-    }
-};
+// var GenerateMap2 = function () {
+//     var canvas = document.getElementById("card2");
+//     var ctx = canvas.getContext("2d");
+//     var img = new Image();
+//     img.src = "Imgs/Cow.jpg";
+//
+//     img.onload = () => {
+//         ctx.drawImage(img,0,0, 200, 200)
+//     }
+// };
 function generateCards(game) {
-    var names = [
-        "smiley",
-        "cat",
-        "line",
-        "cross",
-        "star",
-        "square",
-        "triangle",
-        "circle",
-        "up-arrow",
-        "left-arrow",
-        "right-arrow",
-        "down-arrow",
+    let ImageNames = [
+        "Owl",
+        "Cow",
+        "Panda",
+        "Bee",
+        "Fish",
+        "Monkey",
+        "Moose",
+        "Penguin",
+        "Seal",
+        "Whale",
+        "Worm",
+        "Zebra",
     ];
-    var cardFaces = [];
+    let cardsWithImg = [];
     // Create a pair for each different name
-    for (var i = 0; i < names.length && i < game.cardArray.length / 2; i++) {
+    for (var i = 0; i < ImageNames.length && i < cards.length / 2; i++) {
         var cardFace1 = new Image();
         var cardFace2 = new Image();
-        cardFace1.src = "assets/" + names[i] + ".png";
-        cardFace2.src = "assets/" + names[i] + ".png";
+        cardFace1.src = "./" + ImageNames[i] + ".jpg";
+        cardFace2.src = "./" + ImageNames[i] + ".jpg";
         cardFace1.id = i;
         cardFace2.id = i;
         cardFace1.classList.add("card-value");
         cardFace2.classList.add("card-value");
-        cardFaces.push(cardFace1);
-        cardFaces.push(cardFace2);
+        cardsWithImg.push(cardFace1);
+        cardsWithImg.push(cardFace2);
     }
-    scrambleArray(cardFaces);
-    for (var i = 0; i < game.cardArray.length; i++) {
-        game.cardArray[i].id = cardFaces[i].id;
-        getChildByClassName(game.cardArray[i], "card-front").appendChild(cardFaces[i]);
-    }
+
+    // scrambleArray(cardFaces);
+    // for (var i = 0; i < game.cardArray.length; i++) {
+    //     game.cardArray[i].id = cardFaces[i].id;
+    //     getChildByClassName(game.cardArray[i], "card-front").appendChild(cardFaces[i]);
+    // }
 }
